@@ -1,4 +1,9 @@
 <h1>Top movies</h1>
+<form action="/search" method="get">
+  <input type="text" placeholder="Type in a title" name="title">
+  {{!-- <input type="text" placeholder="Type in a director's name" name="director"> --}}
+  <button>Search</button>
+</form>
 <div class="movies-container">
   {{#each moviesList}}
   {{> movieCard this}}

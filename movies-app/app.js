@@ -35,6 +35,8 @@ app.get("/movies/:movieId", (request, response) => {
   //   }
   // });
 
+  // const { movieId } = request.params;
+
   const movieId = request.params.movieId;
 
   const movie = moviesJSON.find(el => {
@@ -44,6 +46,55 @@ app.get("/movies/:movieId", (request, response) => {
   });
 
   response.render("movie.hbs", movie);
+});
+
+// /search?title=titanic&director=cameron
+
+app.get("/search", (request, response) => {
+  console.log("/search");
+  console.log("request.query: ", request.query);
+
+  // const filtered = moviesJSON.filter(el => {
+  //   if (!request.query.title && !request.query.director) {
+  //     return true;
+  //   }
+
+  //   if (
+  //     request.query.title &&
+  //     el.Title.toLowerCase().includes(request.query.title.toLowerCase())
+  //   ) {
+  //     return true;
+  //   }
+  //   if (
+  //     request.query.director &&
+  //     el.Director.toLowerCase().includes(request.query.director.toLowerCase())
+  //   ) {
+  //     return true;
+  //   }
+  // });
+
+  const filtered = moviesJSON.filter(el => {
+    if (el.Title.toLowerCase().includes(request.query.title.toLowerCase())) {
+      return true;
+    }
+  });
+
+  response.render("movies.hbs", {
+    moviesList: filtered
+  });
+});
+
+app.get("/searchByYear", (request, response) => {
+  const filtered = moviesJSON.filter(el => {
+    if (el.Year === request.query.year) {
+      return true;
+    }
+  });
+
+  console.log("request.query: ", request.query);
+  response.render("movies.hbs", {
+    moviesList: filtered
+  });
 });
 
 app.listen(5555);
