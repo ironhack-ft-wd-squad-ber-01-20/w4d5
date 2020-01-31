@@ -1,0 +1,77 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+.movies-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.movie-card {
+  flex: 1;
+  margin: 10px;
+  box-shadow: 5px 5px 10px 0px#32323232;
+  background-color: #fafafa;
+}
+
+.movie-poster,
+.movie-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.movie-card,
+.movie-details {
+  padding: 10px;
+}
+
+.movie-poster img {
+  width: 250px;
+  height: 400px;
+  object-fit: cover;
+  object-position: center;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+}
+
+form input {
+  border: none;
+
+  padding: 10px;
+  width: 50%;
+  font-size: large;
+  background-color: #fafafa;
+
+  transition: 0.5s background-color;
+}
+
+form input:focus {
+  outline: none;
+  background-color: #fff;
+}
+
+form button {
+  width: 25%;
+  background-color: deeppink;
+  color: #fff;
+  font-size: large;
+  margin-left: 2px;
+  border-radius: 5px;
+}
